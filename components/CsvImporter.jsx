@@ -13,7 +13,6 @@ export default function CsvImporter({ onDone }) {
   async function upload() {
     const file = inputRef.current?.files?.[0];
     if (!file) return alert('Selecciona un CSV');
-
     setLoading(true); setResult(null);
     try {
       const fd = new FormData();
@@ -21,7 +20,7 @@ export default function CsvImporter({ onDone }) {
       fd.append('workspaceId', wsId || '');
       fd.append('accountName', accountName);
       fd.append('currency', currency);
-      const res = await api('/transactions/import', { method: 'POST', body: fd });
+      const res = await api().post('/transactions/import', fd);
       setResult(res);
       onDone?.(res);
     } catch (e) {
@@ -34,17 +33,17 @@ export default function CsvImporter({ onDone }) {
   return (
     <div className="card">
       <h3>Importar transacciones (CSV)</h3>
-      <p style={{ color: '#667085' }}>Columnas esperadas: <code>date/fecha</code>, <code>description/concepto</code>, <code>amount/importe</code> y opcional <code>currency/moneda</code>.</p>
+      <p style={{ color:'#666' }}>Columnas esperadas: date/fecha, description/concepto, amount/importe y opcional currency/moneda.</p>
       <div style={{ display:'grid', gap:8, marginTop:8 }}>
         <input type="file" accept=".csv" ref={inputRef} />
         <div style={{ display:'flex', gap:8 }}>
-          <input className="input" placeholder="Nombre de cuenta" value={accountName} onChange={e=>setAccountName(e.target.value)} />
-          <input className="input" placeholder="Moneda" value={currency} onChange={e=>setCurrency(e.target.value)} />
+          <input className="input" value={accountName} onChange={e=>setAccountName(e.target.value)} placeholder="Nombre de cuenta" />
+          <input className="input" value={currency} onChange={e=>setCurrency(e.target.value)} placeholder="Moneda" />
         </div>
         <button className="btn btn-primary" onClick={upload} disabled={loading}>
           {loading ? 'Importando...' : 'Importar'}
         </button>
-        {result && <div className="text-muted">Creadas: <b>{result.created}</b></div>}
+        {result && <div className="text-muted">Creadas: {result.created}</div>}
       </div>
     </div>
   );
