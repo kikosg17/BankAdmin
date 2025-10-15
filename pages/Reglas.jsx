@@ -10,21 +10,22 @@ export default function Reglas() {
 
   async function load() {
     const q = `?workspaceId=${wsId}`;
-    const data = await api('/rules' + q);
+    const data = await api().get('/rules' + q);
     setList(data);
   }
+
   useEffect(() => { if (wsId) load(); }, [wsId]);
 
   async function createRule() {
     const conditionsJSON = { descriptionContains: descContains };
     const actionsJSON = { setCategoryId: setCategoryId || null };
-    await api('/rules', { method: 'POST', body: { workspaceId: wsId, name, conditionsJSON, actionsJSON } });
+    await api().post('/rules', { workspaceId: wsId, name, conditionsJSON, actionsJSON });
     setName('Regla por concepto'); setDescContains(''); setSetCategoryId('');
     load();
   }
 
   async function runRule(id, dryRun = true) {
-    const res = await api(`/rules/${id}/run`, { method: 'POST', body: { dryRun } });
+    const res = await api().post(`/rules/${id}/run`, { dryRun });
     alert(`${dryRun ? 'Simulación' : 'Aplicación'}: ${JSON.stringify(res)}`);
     if (!dryRun) load();
   }
@@ -32,7 +33,6 @@ export default function Reglas() {
   return (
     <div className="container-xxl">
       <h1>Reglas automáticas</h1>
-
       <div className="card" style={{ maxWidth: 640 }}>
         <h3>Nueva regla</h3>
         <div style={{ display:'grid', gap:8 }}>
@@ -44,7 +44,6 @@ export default function Reglas() {
           </div>
         </div>
       </div>
-
       <div className="card" style={{ marginTop: 12 }}>
         <h3>Reglas</h3>
         <ul>
