@@ -8,9 +8,9 @@ export default function Alertas() {
   const [result, setResult] = useState(null);
 
   async function run() {
-    const data = await api('/alerts/test', { method: 'POST', body: {
+    const data = await api().post('/alerts/test', {
       workspaceId: wsId, lowBalance: Number(threshold), detectDuplicates: checkDup
-    }});
+    });
     setResult(data);
   }
 
@@ -25,7 +25,6 @@ export default function Alertas() {
           <button className="btn btn-primary" onClick={run}>Probar alertas</button>
         </div>
       </div>
-
       {result && (
         <div className="card" style={{ marginTop: 12 }}>
           <h3>Resultados</h3>
