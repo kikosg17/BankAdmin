@@ -8,14 +8,15 @@ export default function Etiquetas() {
 
   async function load() {
     const q = wsId ? `?workspaceId=${wsId}` : '';
-    const data = await api('/tags' + q);
+    const data = await api().get('/tags' + q);
     setList(data);
   }
+
   useEffect(() => { load(); }, []);
 
   async function createTag() {
     if (!name.trim()) return;
-    await api('/tags', { method: 'POST', body: { workspaceId: wsId, name: name.trim() } });
+    await api().post('/tags', { workspaceId: wsId, name: name.trim() });
     setName(''); load();
   }
 
