@@ -1,0 +1,28 @@
+/* ---------- components/FiltrosTransacciones.module.css (claro) ---------- */
+.container {
+  background: var(--panel);
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  padding:16px;
+  box-shadow: var(--shadow-1);
+}
+.form {}
+.header { display:flex; align-items:center; justify-content:space-between; margin-bottom:.75rem; }
+.badge {
+  background:#EEF2FF; border:1px solid #E0EAFF; color:#1E1B4B;
+  padding:.2rem .5rem; border-radius:999px; font-size:.75rem;
+}
+.grid { display:grid; gap:.75rem; grid-template-columns: repeat(6, 1fr); }
+.group { display:flex; flex-direction:column; gap:.25rem; }
+.input, .select {
+  background:#FFFFFF; color:#111827;
+  border:1px solid var(--border); border-radius:8px; padding:.45rem .55rem;
+}
+.search { grid-column: span 2; }
+.actions { display:flex; gap:.5rem; margin-top:.75rem; }
+
+/* Responsivo */
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .search { grid-column: span 2; }
+}

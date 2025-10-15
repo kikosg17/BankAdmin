@@ -1,0 +1,259 @@
+/* Página Principal de Informes */
+.informes-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 24px;
+  position: relative;
+}
+
+/* Notificaciones */
+.notificacion {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-width: 300px;
+  max-width: 500px;
+  z-index: 1000;
+  animation: slideInRight 0.3s ease;
+  font-weight: 600;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.notificacion-success {
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  color: white;
+}
+
+.notificacion-info {
+  background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+  color: white;
+}
+
+.notificacion-warning {
+  background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
+  color: white;
+}
+
+.notificacion-error {
+  background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+  color: white;
+}
+
+.notificacion-cerrar {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.notificacion-cerrar:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Encabezado */
+.informes-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 32px 24px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.informes-main-title {
+  font-size: 42px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+  letter-spacing: -1px;
+}
+
+.informes-subtitle {
+  font-size: 18px;
+  color: #718096;
+  font-weight: 500;
+}
+
+/* Contenido Principal */
+.informes-content {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.informes-section {
+  margin-bottom: 32px;
+}
+
+.informes-divider {
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #667eea 50%,
+    transparent 100%
+  );
+  margin: 48px auto;
+  max-width: 80%;
+  border-radius: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .informes-page {
+    padding: 20px;
+  }
+
+  .informes-header {
+    padding: 24px 20px;
+    margin-bottom: 32px;
+  }
+
+  .informes-main-title {
+    font-size: 36px;
+  }
+
+  .informes-subtitle {
+    font-size: 16px;
+  }
+
+  .informes-divider {
+    margin: 40px auto;
+  }
+
+  .notificacion {
+    min-width: 280px;
+    right: 16px;
+    top: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .informes-page {
+    padding: 16px;
+  }
+
+  .informes-header {
+    padding: 20px 16px;
+    margin-bottom: 24px;
+    border-radius: 16px;
+  }
+
+  .informes-main-title {
+    font-size: 30px;
+  }
+
+  .informes-subtitle {
+    font-size: 15px;
+  }
+
+  .informes-section {
+    margin-bottom: 24px;
+  }
+
+  .informes-divider {
+    margin: 32px auto;
+    max-width: 90%;
+  }
+
+  .notificacion {
+    min-width: 260px;
+    max-width: calc(100vw - 32px);
+    right: 12px;
+    top: 12px;
+    padding: 14px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .informes-page {
+    padding: 12px;
+  }
+
+  .informes-header {
+    padding: 16px 12px;
+    margin-bottom: 20px;
+  }
+
+  .informes-main-title {
+    font-size: 24px;
+    letter-spacing: -0.5px;
+  }
+
+  .informes-subtitle {
+    font-size: 14px;
+  }
+
+  .informes-section {
+    margin-bottom: 20px;
+  }
+
+  .informes-divider {
+    margin: 24px auto;
+  }
+
+  .notificacion {
+    min-width: unset;
+    width: calc(100vw - 24px);
+    right: 8px;
+    top: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+
+  .notificacion-cerrar {
+    font-size: 18px;
+  }
+}
+
+/* Animaciones adicionales */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.informes-section {
+  animation: fadeIn 0.5s ease;
+}
+
+.informes-section:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.informes-section:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.informes-section:nth-child(3) {
+  animation-delay: 0.3s;
+}

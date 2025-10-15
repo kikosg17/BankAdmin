@@ -1,0 +1,7 @@
+/* ---------- styles/Facturas.module.css ---------- */
+.form { display:flex; gap:.5rem; flex-wrap:wrap; margin:.75rem 0; }
+.input, .select {
+  background:#0f172a; color:#e5e7eb; border:1px solid var(--border); border-radius:.5rem; padding:.45rem .55rem;
+}
+.list { margin-top:1rem; }
+.item { display:flex; align-items:center; justify-content:space-between; padding:.5rem .6rem; border-bottom:1px solid var(--border); }

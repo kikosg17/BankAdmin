@@ -1,0 +1,27 @@
+/* ---------- styles/Previsiones.module.css (claro) ---------- */
+.page {}
+.header { margin-bottom:.5rem; }
+.desc { color:#667085; margin:.25rem 0 0; }
+.filters { display:flex; gap:1rem; flex-wrap:wrap; margin:.75rem 0 1rem; }
+.filterGroup{ display:flex; gap:.5rem; align-items:center; }
+.select { background:#FFFFFF; color:#111827; border:1px solid var(--border); border-radius:8px; padding:.45rem .55rem; }
+
+.chart { display:flex; gap:.75rem; align-items:flex-start; }
+.chartYAxis { display:flex; flex-direction:column; gap:10px; color:#667085; }
+.chartArea { flex:1; }
+.lineChart {
+  width:100%; height:240px; background:#FFFFFF;
+  border:1px solid var(--border); border-radius:8px; box-shadow: var(--shadow-1);
+}
+.chartXAxis { display:flex; justify-content:space-between; color:#667085; margin-top:.35rem; font-size:.85rem; }
+
+.amountPositive { color: var(--success); }
+.amountNegative { color: var(--danger); }
+
+.probBadge {
+  padding:.15rem .5rem; border-radius:999px; font-size:.75rem;
+  border:1px solid var(--border); background:#F9FAFB; color:#344054;
+}
+.prob-alta  { border-color:#DCFCE7; color:#166534; background:#F0FDF4; }
+.prob-media { border-color:#E0EAFF; color:#1D4ED8; background:#EEF2FF; }
+.prob-baja  { border-color:#FEF3C7; color:#92400E; background:#FFFBEB; }
